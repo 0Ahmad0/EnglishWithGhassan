@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ghssanapp/const.dart';
+import 'package:ghssanapp/screens/bottom_bar_screen.dart';
+import 'package:ghssanapp/screens/bottom_bar_screens/connect_screen.dart';
+import 'package:ghssanapp/screens/bottom_bar_screens/main_screen.dart';
+import 'package:ghssanapp/screens/bottom_bar_screens/rankings_screen.dart';
 import 'package:ghssanapp/screens/splash_screen.dart';
 
 void main() {
@@ -14,9 +18,12 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'English with Ghassan',
       theme: ThemeData(
-        primaryColor: primaryColor
+        primaryColor: primaryColor,
+        splashColor: primaryColor,
+        fontFamily: 'SohoPro-Light'
       ),
-      home: SplashScreen()
+      home:BottomBarScreen()
     );
   }
 }
+

@@ -34,6 +34,8 @@ dependencies:
   http: ^0.12.0+2
   youtube_player_flutter: ^7.0.0+7
   flutter_youtube_downloader: 0.0.1
+  flutter_svg: ^1.0.0
+  font_awesome_flutter:
 #  cached_network_image: ^2.2.0+1
 dev_dependencies:
   flutter_test:

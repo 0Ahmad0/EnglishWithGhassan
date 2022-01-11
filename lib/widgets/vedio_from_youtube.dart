@@ -60,23 +60,23 @@ class WVedioFromYoutube extends StatelessWidget {
                     ),
                   ),
                 ),
-                Center(child: Text(min_type)),
+                Center(child: Text(min_type,style: TextStyle(height: 2.2),)),
                 Row(
                   children: [
                     Text(
-                      date,
-                      style: TextStyle(color: Colors.red),
+                      '',
+                      style: TextStyle(color: Colors.red,height: 2),
                     ),
                     Text(
-                      ' || ' + category,
+                      category,
                       style: TextStyle(color: colorGray),
                     )
                   ],
                 ),
-                Text(description),
+                Text(description,style: TextStyle(height: 1.5),),
                 Text(
-                  category,
-                  style: TextStyle(color: Colors.red),
+                  link,
+                  style: TextStyle(color: Colors.red,height: 2),
                 ),
               ],
             ),

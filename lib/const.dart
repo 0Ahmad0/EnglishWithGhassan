@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+
 const Color colorGray = Color(0xff707070);
 const Color primaryColor = Color(0xff006AFF);
 const String connectText = 'يمكنك التواصل مع أ.غسان نكدلي للحصول '
@@ -7,12 +8,12 @@ const String connectText = 'يمكنك التواصل مع أ.غسان نكدل�
     '\n الاجتماعي';
 
 const List<String> images = [
-  'assets/images/whatup.png',
-  'assets/images/facebook.png',
-  'assets/images/youtube.png',
-  'assets/images/insta.png',
-  'assets/images/telegram.png',
-  'assets/images/phone.png',
+  'assets/images/whats.svg',
+  'assets/images/fb.svg',
+  'assets/images/you.svg',
+  'assets/images/insta.svg',
+  'assets/images/tele.svg',
+  'assets/images/skepy.svg',
 ];
 const String aboutApp = 'تطبيق English With Ghassan  هو تطبيق لتعلم اللغة الإنكليزية بطريقة مبسطة من الأستاذ القدير\n أ.غسان نكدلي';
 const List<Map<String, String>> wordsCategories = [
@@ -47,3 +48,4 @@ const List<Map<String, String>> wordsCategories = [
 Size getScreenSize(BuildContext context) {
   return MediaQuery.of(context).size;
 }
+

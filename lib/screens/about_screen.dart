@@ -1,21 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:ghssanapp/controller/connect_controller.dart';
 import 'package:ghssanapp/widgets/WButtonabout.dart';
 import 'package:share/share.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../const.dart';
 
 class AboutScreen extends StatelessWidget {
   const AboutScreen({Key key}) : super(key: key);
-
+  void contactSoshial(url) async {
+    if (await canLaunch(url)) {
+      await launch(
+        url,
+        universalLinksOnly: true,
+      );
+    } else {
+      Get.snackbar('There was a problem Are You have This APP?', url);
+      throw 'There was a problem to open the url: $url';
+    }
+  }
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery
-        .of(context)
-        .size;
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: primaryColor,
         title: Text('حول التطبيق'),
         centerTitle: true,
       ),
@@ -23,7 +34,9 @@ class AboutScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              const SizedBox(height: 15.0,),
+              const SizedBox(
+                height: 15.0,
+              ),
               Text(
                 'أهلاً بك',
                 textAlign: TextAlign.center,
@@ -52,7 +65,7 @@ class AboutScreen extends StatelessWidget {
                                 textDirection: TextDirection.rtl,
                                 child: Container(
                                   width: double.infinity,
-                                  height: getScreenSize(context).height / 2,
+                                  height: getScreenSize(context).height / 1.8,
                                   margin: const EdgeInsets.symmetric(
                                       horizontal: 20.0, vertical: 25.0),
                                   padding: const EdgeInsets.all(15.0),
@@ -61,13 +74,13 @@ class AboutScreen extends StatelessWidget {
                                       borderRadius: BorderRadius.circular(15)),
                                   child: Column(
                                     mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
+                                        MainAxisAlignment.spaceAround,
                                     children: [
                                       Container(
-                                        width: getScreenSize(context).width *
-                                            0.3,
-                                        height: getScreenSize(context).width *
-                                            0.3,
+                                        width:
+                                            getScreenSize(context).width * 0.3,
+                                        height:
+                                            getScreenSize(context).width * 0.3,
                                         decoration: BoxDecoration(
                                             color: Colors.white,
                                             border: Border.all(),
@@ -77,29 +90,35 @@ class AboutScreen extends StatelessWidget {
                                                     'assets/images/logo.png'))),
                                       ),
                                       GetBuilder(
-                                          init: ConnectController(),
-                                          builder: (controller) =>
-                                              GestureDetector(
-                                                onTap: () {
-                                                  controller.contactSoshial('https://t.me/Englishwithghassan');
-                                                },
-                                                child: Row(
-                                                  mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                                  children: [
-                                                    Icon(Icons.send,color: primaryColor,),
-                                                    const SizedBox(
-                                                      width: 10.0,),
-                                                    Material(
-                                                        color: Colors
-                                                            .transparent,
-                                                        child: Text(
-                                                            'تابعنا على تلغرام',style: TextStyle(
-                                                            color: primaryColor,
-                                                        ),))
-                                                  ],
-                                                ),
+                                        init: ConnectController(),
+                                        builder: (controller) =>
+                                            GestureDetector(
+                                          onTap: () {
+                                            controller.contactSoshial(
+                                                'https://t.me/Englishwithghassan');
+                                          },
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Icon(
+                                              FontAwesomeIcons.telegram,
+                                                color: primaryColor,
                                               ),
+                                              const SizedBox(
+                                                width: 10.0,
+                                              ),
+                                              Material(
+                                                  color: Colors.transparent,
+                                                  child: Text(
+                                                    'تابعنا على تلغرام',
+                                                    style: TextStyle(
+                                                      color: primaryColor,
+                                                    ),
+                                                  ))
+                                            ],
+                                          ),
+                                        ),
                                       ),
                                       Material(
                                           color: Colors.transparent,
@@ -121,12 +140,26 @@ class AboutScreen extends StatelessWidget {
                                             },
                                             child: Row(
                                               mainAxisAlignment:
-                                              MainAxisAlignment.spaceEvenly,
+                                                  MainAxisAlignment.spaceEvenly,
                                               children: [
                                                 Text('شارك التطبيق'),
                                                 Icon(Icons.share)
                                               ],
                                             )),
+                                      ),
+                                      Material(
+                                          color: Colors.transparent,
+                                          child: Text('مطور التطبيق')),
+                                      TextButton(
+                                        onPressed: (){
+                                          contactSoshial('https://t.me/Ahmad_Alhariri');
+                                        },
+                                        child: Text(
+                                          'Ahmed Alhariri',
+                                          style: TextStyle(
+                                              fontFamily: 'Shoco-pro',
+                                              color: primaryColor),
+                                        ),
                                       )
                                     ],
                                   ),
@@ -143,7 +176,7 @@ class AboutScreen extends StatelessWidget {
                           Get.dialog(
                             Center(
                               child: Directionality(
-                                textDirection: TextDirection.rtl,
+                                textDirection: TextDirection.ltr,
                                 child: Container(
                                   width: double.infinity,
                                   height: getScreenSize(context).height / 2.5,
@@ -155,45 +188,42 @@ class AboutScreen extends StatelessWidget {
                                       borderRadius: BorderRadius.circular(15)),
                                   child: Column(
                                     mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
+                                        MainAxisAlignment.spaceAround,
                                     children: [
                                       Material(
                                           color: Colors.transparent,
                                           //ToDo: This Section change text an email
                                           child: Text(
                                             'إذا كنت تواجه أي مشكلة أو لديك اقتراحات \n'
-                                                'يرجى التواصل معنا على البريد الالكتروني حط ايميلو \n أو الرقم: حط رقم غسان هون',
+                                            'يرجى التواصل معنا على البريد الالكتروني m.nakadli12@gmail.com \n أو الرقم:\n'
+                                                '+962 7 8847 2332',
                                             textAlign: TextAlign.center,
                                             style: TextStyle(height: 1.8),
                                           )),
                                       GetBuilder(
                                         init: ConnectController(),
-                                        builder: (controller) =>
-                                            Padding(
-                                              padding: const EdgeInsets.all(
-                                                  15.0),
-                                              child: ElevatedButton(
-                                                  style: ElevatedButton
-                                                      .styleFrom(
-                                                    primary: primaryColor,
-                                                  ),
-                                                  onPressed: () {
-                                                    Get.back();
-                                                    controller.contactSoshial(
-                                                      //ToDo: change emailHereMazenSh  to email connect them
-                                                        'mailto:emailHereMazenSh?subject=Sample Subject&body=اكتب المشكلة هنا'
-                                                    );
-                                                  },
-                                                  child: Row(
-                                                    mainAxisAlignment:
+                                        builder: (controller) => Padding(
+                                          padding: const EdgeInsets.all(15.0),
+                                          child: ElevatedButton(
+                                              style: ElevatedButton.styleFrom(
+                                                primary: primaryColor,
+                                              ),
+                                              onPressed: () {
+                                                Get.back();
+                                                controller.contactSoshial(
+                                                    //ToDo: change emailHereMazenSh  to email connect them
+                                                    'mailto:ahmadalhariri2001@gmail.com?subject=Sample Subject&body=اكتب المشكلة هنا');
+                                              },
+                                              child: Row(
+                                                mainAxisAlignment:
                                                     MainAxisAlignment
                                                         .spaceEvenly,
-                                                    children: [
-                                                      Text('إبلاغ عن مشكلة'),
-                                                      Icon(Icons.email)
-                                                    ],
-                                                  )),
-                                            ),
+                                                children: [
+                                                  Text('إبلاغ عن مشكلة'),
+                                                  Icon(Icons.email)
+                                                ],
+                                              )),
+                                        ),
                                       )
                                     ],
                                   ),
