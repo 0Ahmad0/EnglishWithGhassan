@@ -42,7 +42,7 @@ class MainScreen extends StatelessWidget {
                     itemCount: decodedData.length,
                     itemBuilder: (context, index) {
                       String url = decodedData[index]['link'];
-                      String id = url.substring(url.length -11);
+                      String id = url.substring(url.length -1);
                       // YoutubePlayerController _controller = YoutubePlayerController(
                       //   initialVideoId: id,
                       //   flags: YoutubePlayerFlags(
@@ -52,7 +52,7 @@ class MainScreen extends StatelessWidget {
                       // print(_controller.metadata.title);
                       // print(decodedData.length);
                       return WVedioFromYoutube(
-                        image: 'https://img.youtube.com/vi/${id}/0.jpg',
+                        image: 'https://img.youtube.com/vi/${id}.jpg',
                         min_type: decodedData[index]['min_type'],
                         date: 'minute',
                         category: decodedData[index]['category'],
