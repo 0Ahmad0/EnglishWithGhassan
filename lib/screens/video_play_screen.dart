@@ -24,7 +24,7 @@ class VideoPlayScreen extends StatelessWidget {
           child: YoutubePlayer(
             showVideoProgressIndicator: false,
             controller: YoutubePlayerController(
-                initialVideoId: id,
+                initialVideoId:id,
                 flags: YoutubePlayerFlags(
                   mute: false,
                   loop: true,

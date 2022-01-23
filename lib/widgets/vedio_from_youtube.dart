@@ -26,7 +26,7 @@ class WVedioFromYoutube extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
     onTap: (){
-  Get.to(()=>VideoPlayScreen(id: description));
+  Get.to(()=>VideoPlayScreen(id: image.substring(27,38)));
     },
       child: Container(
         margin: const EdgeInsets.all(15.0),
@@ -47,7 +47,6 @@ class WVedioFromYoutube extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                //ToDO: This Section Need To Package flutter_youtube_vedio wrap down Continer i need Api MazenSh to Do It
                 Container(
                   width: double.infinity,
                   height: getScreenSize(context).width * 0.5,
@@ -56,7 +55,7 @@ class WVedioFromYoutube extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10.0),
                     image: DecorationImage(
                       fit: BoxFit.cover,
-                      image: AssetImage(image),
+                      image: NetworkImage(image),
                     ),
                   ),
                 ),

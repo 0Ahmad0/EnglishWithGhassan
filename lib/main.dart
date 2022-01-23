@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         splashColor: primaryColor,
         fontFamily: 'SohoPro-Light'
       ),
-      home:BottomBarScreen()
+      home:SplashScreen()
     );
   }
 }

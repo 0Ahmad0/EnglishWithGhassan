@@ -37,7 +37,7 @@ class ConnectScreen extends StatelessWidget {
                 height: 20.0,
               ),
               WConnect(
-                color: Color(0xff25D366).withOpacity(.5),
+                color: Color(0xff25D366).withOpacity(.25),
                 text: '+962788472332',
                 onTap: () {
                   controller.contactSoshial(controller.whatsapp);
@@ -45,7 +45,7 @@ class ConnectScreen extends StatelessWidget {
                 nameIMG: images[0],
               ),
               WConnect(
-                color: Color(0xff3b5998).withOpacity(.5),
+                color: Color(0xff3b5998).withOpacity(.25),
                 text: 'غسان نكدلي',
                 onTap: () {
                   controller.contactSoshial(controller.facebook);
@@ -53,7 +53,7 @@ class ConnectScreen extends StatelessWidget {
                 nameIMG: images[1],
               ),
               WConnect(
-                color: Color(0xfffd0100).withOpacity(.5),
+                color: Color(0xfffd0100).withOpacity(.25),
                 text: 'English With Ghassan',
                 onTap: () {
                   //TODO
@@ -62,7 +62,7 @@ class ConnectScreen extends StatelessWidget {
                 nameIMG: images[2],
               ),
               WConnect(
-                color: Color(0xfff09433).withOpacity(.5),
+                color: Color(0xfff09433).withOpacity(.25),
                 text: 'English_With_Ghassan',
                 onTap: () {
                   controller.contactSoshial(controller.instagram);
@@ -77,7 +77,7 @@ class ConnectScreen extends StatelessWidget {
                   child: Container(
                     padding: EdgeInsets.all(20.0),
                       width: double.infinity,
-                      color: Color(0xff0088cc).withOpacity(.5),
+                      color: Color(0xff0088cc).withOpacity(.25),
                       child: Row(
                         children: [
                           Expanded(
@@ -98,7 +98,7 @@ class ConnectScreen extends StatelessWidget {
                   child: Container(
                       padding: EdgeInsets.all(20.0),
                       width: double.infinity,
-                      color: Color(0xff01b2f8).withOpacity(.5),
+                      color: Color(0xff01b2f8).withOpacity(.25),
                       child: Row(
                         children: [
                           Expanded(
