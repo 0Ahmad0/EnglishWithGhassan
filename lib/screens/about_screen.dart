@@ -136,7 +136,7 @@ class AboutScreen extends StatelessWidget {
                                             onPressed: () {
                                               Get.back();
                                               Share.share(
-                                                  'https://Link on Google Play ... Soon');
+                                                  'https://play.google.com/store/apps/details?id=en.com.ghassanapp');
                                             },
                                             child: Row(
                                               mainAxisAlignment:
